@@ -1,45 +1,748 @@
-/* Base body styles */
+/* =====================================================
+   RETRO CRT THEME for Beautiful Jekyll
+   - Black background, green terminal aesthetic
+   - Readable but unmistakably retro
+   ===================================================== */
+
+/* --- CSS Variables --- */
+:root {
+  --green:       #00e000;
+  --green-dim:   #009900;
+  --green-glow:  rgba(0, 224, 0, 0.25);
+  --cyan:        #00ffff;
+  --cyan-dim:    #009999;
+  --black:       #000000;
+  --dark:        #0a0a0a;
+  --mid:         #111111;
+  --border:      #1a3a1a;
+  --text-muted:  #558855;
+  --amber:       #ffb000;  /* accent for highlights */
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #000;
-  color: #0f0; /* normal green text */
-  font-family: 'Courier New', monospace;
-  line-height: 1.5;
-  text-shadow: 0 0 1px #0f0; /* subtle glow for normal text */
+  color: var(--green);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  text-shadow: 0 0 1px var(--green);
+
+  /* Grid: dark grey cells with green lines */
+  background-image:
+    /* CRT scanlines — top layer */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 255, 0, 0.018) 2px,
+      rgba(0, 255, 0, 0.018) 4px
+    ),
+    /* Horizontal green grid lines (1px every 40px) */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 180, 0, 0.45) 0px,
+      rgba(0, 180, 0, 0.45) 1px,
+      #0d0d0d 1px,
+      #0d0d0d 40px
+    ),
+    /* Vertical green grid lines (1px every 40px) */
+    repeating-linear-gradient(
+      to right,
+      rgba(0, 180, 0, 0.45) 0px,
+      rgba(0, 180, 0, 0.45) 1px,
+      #0d0d0d 1px,
+      #0d0d0d 40px
+    );
+  background-size: auto 4px, 40px 40px, 40px 40px;
 }
 
-/* Largest heading glow */
+/* Main content column — dark solid panel over the grid */
+.container,
+.container-md,
+.container-fluid > .row > [class*="col"] {
+  background-color: rgba(0, 0, 0, 0.82);
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 0 40px rgba(0, 200, 0, 0.08);
+}
+
+/* Subtle vignette around page edges */
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+  z-index: 9999;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+   ===================================================== */
+
 h1 {
-  color: #0f0;
+  color: var(--green);
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   text-shadow:
-    0 0 3px #0f0,   /* small inner glow */
-    0 0 6px #0f0,   /* medium glow */
-    0 0 10px #0f0,  /* large glow */
-    0 0 15px #0f0;  /* outer intense glow */
+    0 0 3px var(--green),
+    0 0 8px var(--green),
+    0 0 16px var(--green);
 }
 
-/* Medium headings slightly glowing but legible */
 h2, h3 {
-  color: #0f0;
-  text-shadow: 0 0 2px #0f0;
+  color: var(--green);
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 4px var(--green);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25em;
 }
 
-/* Links */
-a {
-  color: #00ffff;
-  text-decoration: underline;
-  text-shadow: 0 0 1px #00ffff;
+h4, h5, h6 {
+  color: var(--green-dim);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.04em;
 }
 
-/* Optional scanlines for retro CRT effect */
+p {
+  color: var(--green);
+}
+
+strong, b {
+  color: #fff;
+  text-shadow: 0 0 2px var(--green);
+}
+
+em, i {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+small, .text-muted {
+  color: var(--text-muted) !important;
+  text-shadow: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 0 4px var(--green-glow);
+  margin: 2em 0;
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+a, a:visited {
+  color: var(--cyan);
+  text-decoration: none;
+  text-shadow: 0 0 1px var(--cyan);
+  transition: color 0.15s, text-shadow 0.15s;
+}
+
+a:hover, a:focus {
+  color: var(--amber);
+  text-shadow: 0 0 6px var(--amber), 0 0 12px var(--amber);
+  text-decoration: none;
+}
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar {
+  background-color: var(--dark) !important;
+  border-bottom: 1px solid var(--green-dim) !important;
+  box-shadow: 0 2px 12px var(--green-glow) !important;
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+.navbar-brand {
+  color: var(--green) !important;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px var(--green) !important;
+}
+
+.navbar-brand:hover {
+  color: var(--amber) !important;
+  text-shadow: 0 0 8px var(--amber) !important;
+}
+
+/* Nav links */
+.navbar-nav .nav-link,
+.nav-item > a,
+.navbar .nav-item > a {
+  color: var(--green-dim) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+
+.navbar-nav .nav-link:hover,
+.nav-item > a:hover {
+  color: var(--green) !important;
+  text-shadow: 0 0 6px var(--green) !important;
+}
+
+/* Navbar avatar */
+.navbar-brand img,
+.avatar-container img {
+  border: 1px solid var(--green-dim) !important;
+  box-shadow: 0 0 6px var(--green-glow) !important;
+  filter: brightness(0.9) saturate(0.5) hue-rotate(60deg);
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+  background-color: var(--dark) !important;
+  border: 1px solid var(--green-dim) !important;
+  box-shadow: 0 0 12px var(--green-glow) !important;
+}
+
+.dropdown-item {
+  color: var(--green-dim) !important;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dropdown-item:hover {
+  background-color: var(--border) !important;
+  color: var(--green) !important;
+  text-shadow: 0 0 4px var(--green);
+}
+
+/* Hamburger menu icon */
+.navbar-toggler {
+  border-color: var(--green-dim) !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg);
+}
+
+/* =====================================================
+   HERO / PAGE HEADER
+   ===================================================== */
+
+.intro-header {
+  background-color: var(--dark) !important;
+  border-bottom: 1px solid var(--border);
+  box-shadow: inset 0 -4px 20px var(--green-glow);
+}
+
+.intro-header .page-heading,
+.intro-header .post-heading {
+  text-shadow:
+    0 0 4px var(--green),
+    0 0 10px var(--green) !important;
+}
+
+.intro-header .page-subheading,
+.intro-header .post-subheading {
+  color: var(--text-muted) !important;
+  text-shadow: none !important;
+}
+
+.intro-header .post-meta {
+  color: var(--cyan-dim) !important;
+}
+
+/* Cover image overlay — darken heavily for readability */
+.intro-header.has-img .big-img {
+  filter: brightness(0.3) saturate(0.2) hue-rotate(100deg);
+}
+
+/* =====================================================
+   MAIN CONTENT AREA
+   ===================================================== */
+
+.container-md,
+.container,
+.post-container {
+  background-color: transparent;
+}
+
+/* Post / page body */
+.post-body,
+.page-content,
+section.post-body {
+  color: var(--green);
+}
+
+/* =====================================================
+   BLOG POST CARDS (feed)
+   ===================================================== */
+
+.post-preview {
+  background-color: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 0 !important;  /* sharp corners = retro */
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+/* Blinking cursor accent on hover */
+.post-preview::before {
+  content: '> ';
+  color: var(--green);
+  font-weight: bold;
+  opacity: 0;
+  position: absolute;
+  left: -1.2rem;
+  top: 1.35rem;
+  transition: opacity 0.15s;
+}
+
+.post-preview:hover::before {
+  opacity: 1;
+  animation: blink 0.8s step-end infinite;
+}
+
+.post-preview:hover {
+  border-color: var(--green-dim);
+  box-shadow: 0 0 12px var(--green-glow), inset 0 0 6px rgba(0,200,0,0.04);
+}
+
+.post-preview a.post-title {
+  color: var(--green) !important;
+  text-shadow: 0 0 2px var(--green);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-preview a.post-title:hover {
+  color: var(--amber) !important;
+  text-shadow: 0 0 6px var(--amber);
+}
+
+.post-preview .post-subtitle,
+.post-preview p {
+  color: var(--text-muted);
+}
+
+.post-preview .post-meta {
+  color: var(--cyan-dim);
+  font-size: 0.8rem;
+}
+
+/* Post thumbnail image */
+.post-preview .post-image img {
+  filter: brightness(0.7) saturate(0.3) hue-rotate(90deg);
+  border: 1px solid var(--border);
+  transition: filter 0.3s;
+}
+
+.post-preview:hover .post-image img {
+  filter: brightness(0.85) saturate(0.5) hue-rotate(80deg);
+}
+
+/* Tags */
+.blog-tags a,
+.post-preview .blog-tags a {
+  color: var(--cyan-dim) !important;
+  border: 1px solid var(--cyan-dim);
+  padding: 1px 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+  text-shadow: none;
+  transition: all 0.15s;
+}
+
+.blog-tags a:hover {
+  color: var(--cyan) !important;
+  border-color: var(--cyan);
+  box-shadow: 0 0 6px rgba(0,255,255,0.3);
+}
+
+/* =====================================================
+   CODE BLOCKS
+   ===================================================== */
+
+pre, code {
+  background-color: var(--mid) !important;
+  color: var(--green) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.88em;
+  text-shadow: 0 0 1px var(--green);
+}
+
+pre {
+  padding: 1rem 1.25rem !important;
+  box-shadow: inset 0 0 8px rgba(0,200,0,0.06);
+  overflow-x: auto;
+}
+
+/* Inline code */
+p code, li code {
+  padding: 1px 5px !important;
+  color: var(--amber) !important;
+  text-shadow: 0 0 2px var(--amber);
+  border-color: #3a2a00 !important;
+  background-color: #0d0900 !important;
+}
+
+/* =====================================================
+   BLOCKQUOTES
+   ===================================================== */
+
+blockquote {
+  border-left: 3px solid var(--green-dim) !important;
+  background-color: var(--mid) !important;
+  color: var(--text-muted) !important;
+  padding: 0.75rem 1rem !important;
+  margin: 1.5rem 0 !important;
+  font-style: italic;
+  text-shadow: none;
+  box-shadow: inset 0 0 6px rgba(0,200,0,0.04);
+}
+
+blockquote p {
+  color: var(--text-muted) !important;
+}
+
+/* =====================================================
+   TABLES
+   ===================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: var(--mid);
+  color: var(--green);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 3px var(--green);
+}
+
+td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  color: var(--green);
+}
+
+tr:hover td {
+  background-color: rgba(0, 200, 0, 0.04);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+  background-color: var(--dark) !important;
+  border-top: 1px solid var(--green-dim) !important;
+  box-shadow: 0 -2px 12px var(--green-glow) !important;
+  color: var(--text-muted) !important;
+}
+
+footer a {
+  color: var(--green-dim) !important;
+  text-shadow: none;
+}
+
+footer a:hover {
+  color: var(--green) !important;
+  text-shadow: 0 0 4px var(--green);
+}
+
+/* Social icons in footer */
+footer .fa,
+footer .fas,
+footer .fab,
+footer svg {
+  color: var(--green-dim) !important;
+  fill: var(--green-dim) !important;
+  transition: color 0.15s, filter 0.15s;
+}
+
+footer .fa:hover,
+footer .fas:hover,
+footer .fab:hover {
+  color: var(--green) !important;
+  fill: var(--green) !important;
+  filter: drop-shadow(0 0 4px var(--green));
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.btn,
+.btn-default,
+button {
+  background-color: transparent !important;
+  color: var(--green) !important;
+  border: 1px solid var(--green-dim) !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  transition: all 0.15s;
+}
+
+.btn:hover,
+button:hover {
+  background-color: var(--border) !important;
+  color: var(--amber) !important;
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 10px rgba(255,176,0,0.25) !important;
+  text-shadow: 0 0 6px var(--amber);
+}
+
+/* =====================================================
+   SEARCH BAR
+   ===================================================== */
+
+#nav-search-input,
+input[type="search"],
+input[type="text"] {
+  background-color: var(--dark) !important;
+  color: var(--green) !important;
+  border: 1px solid var(--green-dim) !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  caret-color: var(--green);
+}
+
+input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+input:focus {
+  outline: none !important;
+  box-shadow: 0 0 8px var(--green-glow) !important;
+  border-color: var(--green) !important;
+}
+
+/* =====================================================
+   PAGINATION
+   ===================================================== */
+
+.pagination .page-item .page-link {
+  background-color: var(--dark) !important;
+  color: var(--green-dim) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: var(--border) !important;
+  color: var(--green) !important;
+  box-shadow: 0 0 6px var(--green-glow);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--border) !important;
+  color: var(--green) !important;
+  border-color: var(--green-dim) !important;
+  text-shadow: 0 0 4px var(--green);
+}
+
+/* =====================================================
+   SCROLLBAR (Webkit browsers)
+   ===================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-dim);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+  box-shadow: 0 0 4px var(--green);
+}
+
+/* =====================================================
+   SELECTION
+   ===================================================== */
+
+::selection {
+  background: var(--green-dim);
+  color: var(--black);
+  text-shadow: none;
+}
+
+/* =====================================================
+   MOBILE / RESPONSIVE
+   ===================================================== */
+
+/* Hide the blinking cursor prompt on small screens — no room for it */
+@media (max-width: 768px) {
+  .post-preview::before,
+  .post-card::before {
+    display: none;
+  }
+
+  /* Tighten post card padding */
+  .post-preview {
+    padding: 1rem 1rem;
+  }
+
+  /* Slightly larger base font so Courier New stays readable */
+  body {
+    font-size: 16px;
+  }
+
+  /* Full-width content panel on mobile — no side margins to show grid */
+  .container,
+  .container-md,
+  .container-fluid > .row > [class*="col"] {
+    background-color: rgba(0, 0, 0, 0.92);
+    box-shadow: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Keep grid on mobile — smaller cells, same dark grey + green lines */
+  body {
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px,
+        rgba(0,255,0,0.015) 2px, rgba(0,255,0,0.015) 4px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0,180,0,0.4) 0px,
+        rgba(0,180,0,0.4) 1px,
+        #0d0d0d 1px,
+        #0d0d0d 30px
+      ),
+      repeating-linear-gradient(
+        to right,
+        rgba(0,180,0,0.4) 0px,
+        rgba(0,180,0,0.4) 1px,
+        #0d0d0d 1px,
+        #0d0d0d 30px
+      );
+    background-size: auto 4px, 30px 30px, 30px 30px;
+  }
+
+  /* Navbar brand sizing */
+  .navbar-brand {
+    font-size: 0.95rem !important;
+  }
+
+  /* Headings scale down */
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  h2, h3 {
+    font-size: 1.05rem;
+  }
+
+  /* Post title */
+  .post-preview a.post-title {
+    font-size: 1rem;
+  }
+
+  /* Code blocks scroll horizontally, don't overflow */
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+    font-size: 0.8em !important;
+  }
+
+  /* Tags wrap cleanly */
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  /* Buttons full-width on mobile */
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Table — allow horizontal scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Footer icons spacing */
+  footer {
+    padding: 1rem;
+  }
+}
+
+/* Slightly larger screens (tablets) — partial adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .post-preview::before,
+  .post-card::before {
+    display: none;
+  }
+
+  .container,
+  .container-md {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Optional: flicker effect on page load */
+@keyframes flicker {
+  0%   { opacity: 0.97; }
+  5%   { opacity: 0.94; }
+  10%  { opacity: 0.98; }
+  15%  { opacity: 0.93; }
+  20%  { opacity: 0.99; }
+  100% { opacity: 1; }
+}
+
 body {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0px,
-    rgba(0,0,0,0) 2px,
-    rgba(0,255,0,0.05) 2px,
-    rgba(0,255,0,0.05) 4px
-  );
-  background-size: auto 4px;
+  animation: flicker 0.4s ease-in-out 1;
 }
-
-
