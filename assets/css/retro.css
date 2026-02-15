@@ -481,7 +481,7 @@ footer .fas,
 footer .fab,
 footer svg {
   color: var(--green-dim) !important;
-  fill: var(--green-dim) !important;
+  fill: var(--dark) !important;
   transition: color 0.15s, filter 0.15s;
 }
 
