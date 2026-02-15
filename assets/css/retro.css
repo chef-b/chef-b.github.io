@@ -1,16 +1,45 @@
+/* Base body styles */
 body {
   background-color: #000;
-  color: #00FF00;
+  color: #0f0; /* normal green text */
   font-family: 'Courier New', monospace;
-  text-shadow: 0 0 2px #00FF00, 0 0 5px #00FF00;
+  line-height: 1.5;
+  text-shadow: 0 0 1px #0f0; /* subtle glow for normal text */
 }
 
-h1, h2, h3 {
-  color: #FF00FF;
+/* Largest heading glow */
+h1 {
+  color: #0f0;
+  text-shadow:
+    0 0 3px #0f0,   /* small inner glow */
+    0 0 6px #0f0,   /* medium glow */
+    0 0 10px #0f0,  /* large glow */
+    0 0 15px #0f0;  /* outer intense glow */
 }
 
+/* Medium headings slightly glowing but legible */
+h2, h3 {
+  color: #0f0;
+  text-shadow: 0 0 2px #0f0;
+}
+
+/* Links */
 a {
-  color: #00FFFF;
+  color: #00ffff;
   text-decoration: underline;
+  text-shadow: 0 0 1px #00ffff;
 }
+
+/* Optional scanlines for retro CRT effect */
+body {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,255,0,0.05) 2px,
+    rgba(0,255,0,0.05) 4px
+  );
+  background-size: auto 4px;
+}
+
 
