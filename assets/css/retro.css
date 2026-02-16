@@ -95,8 +95,8 @@ h1 {
   letter-spacing: 0.08em;
   text-shadow:
     0 0 3px var(--green),
-    0 0 8px var(--green),
-    0 0 16px var(--green);
+    0 0 5px var(--green),
+    0 0 8px var(--green);
 }
 
 h2, h3 {
