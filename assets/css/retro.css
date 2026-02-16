@@ -457,7 +457,6 @@ tr:hover td {
 /* =====================================================
    FOOTER
    ===================================================== */
-
 footer {
   background-color: var(--dark) !important;
   border-top: 1px solid var(--green-dim) !important;
@@ -465,23 +464,32 @@ footer {
   color: var(--text-muted) !important;
 }
 
+/* Icon button circles */
 footer a {
-  color: var(--green-dim) !important;
-  text-shadow: none;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background-color: #003300 !important;
+  border: 1px solid var(--green-dim) !important;
+  text-shadow: none !important;
+  transition: all 0.15s !important;
 }
 
 footer a:hover {
-  color: var(--green) !important;
-  text-shadow: 0 0 4px var(--green);
+  background-color: #004400 !important;
+  box-shadow: 0 0 8px var(--green-glow) !important;
 }
 
-/* Social icons in footer */
+/* Icon itself — stays green-dim for contrast against dark bg */
 footer .fa,
 footer .fas,
 footer .fab,
 footer svg {
   color: var(--green-dim) !important;
-  fill: var(--dark) !important;
+  fill: var(--green-dim) !important;
   transition: color 0.15s, filter 0.15s;
 }
 
