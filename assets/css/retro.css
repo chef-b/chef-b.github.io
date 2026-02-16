@@ -455,6 +455,48 @@ tr:hover td {
 /* =====================================================
    FOOTER
    ===================================================== */
+/* Override bootstrap-social button colours */
+.btn-social,
+.btn-social-icon {
+  background-color: #003300 !important;
+  border-color: var(--green-dim) !important;
+  color: var(--green-dim) !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  transition: all 0.15s !important;
+}
+
+.btn-social:hover,
+.btn-social-icon:hover {
+  background-color: #004400 !important;
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  box-shadow: 0 0 8px var(--green-glow) !important;
+}
+
+/* Specifically override github and linkedin brand colours */
+.btn-github,
+.btn-linkedin {
+  background-color: #003300 !important;
+  border-color: var(--green-dim) !important;
+  color: var(--green-dim) !important;
+}
+
+.btn-github:hover,
+.btn-linkedin:hover {
+  background-color: #004400 !important;
+  color: var(--green) !important;
+}
+
+/* The icon inside the button */
+.btn-social > :first-child,
+.btn-social-icon > :first-child {
+  color: var(--green-dim) !important;
+  border-right: none !important;
+  width: 100% !important;
+}
 
 footer {
   background-color: var(--dark) !important;
