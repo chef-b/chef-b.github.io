@@ -2,7 +2,7 @@
 layout: post
 title: Testing Testing, 1, 2, 3
 subtitle: Portfolio 1
-cover-img: /assets/img/lapasion.jpeg
+cover-img: /assets/img/
 thumbnail-img: /assets/img/lapasion.jpeg
 share-img: /assets/img/lapasion.jpeg
 tags: [test]
@@ -14,7 +14,13 @@ I’ve never properly coded before.
 
 No CS degree, no bootcamp - all I did was a one-day SheCodes workshop and I kinda liked it.
 
-The Result:
+---
+
+## The Vision 
+
+I like campy, crunchy, fun. My website is like the prehistoric little white dogs every suburban family seems to have and I'm equally attached - it's endearing and close to my heart. 
+
+This is where we started and then where we went:
 <div class="img-toggle-container" onclick="toggleImage(this)">
   <img class="img-before" src="/assets/img/Screenshot_20260216_233128.png" alt="Before">
   <img class="img-after hidden" src="/assets/img/inspo1.jpeg" alt="After">
@@ -27,11 +33,6 @@ function toggleImage(container) {
   container.querySelector('.img-after').classList.toggle('hidden');
 }
 </script>
-
-
-With a background in Marketing and Socio-legal studies, I wanted to apply for jobs but they all asked for portfolio work.
-
-So I thought: let’s see what I can do.
 
 ---
 
