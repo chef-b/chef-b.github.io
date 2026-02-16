@@ -1,14 +1,13 @@
 ---
 layout: post
-title: Testing Testing, 1, 2, 3
-subtitle: Portfolio 1
+title: I Built My First Portfolio in 2 Days (With Zero Experience)
+subtitle: Testing Testing, 1, 2, 3
 cover-img: /assets/img/
 thumbnail-img: /assets/img/lapasion.jpeg
 share-img: /assets/img/lapasion.jpeg
 tags: [test]
 author: Bee
 ---
-## I Built My First Portfolio in 2 Days (With Zero Experience)
 
 I’ve never properly coded before.
 
