@@ -4,7 +4,7 @@ title: Testing Testing, 1, 2, 3
 subtitle: Portfolio 1
 cover-img: /assets/img/lapasion.jpeg
 thumbnail-img: /assets/img/lapasion.jpeg
-share-img: /assets/img/untitled(1).png
+share-img: /assets/img/lapasion.jpeg
 tags: [test]
 author: Bee
 ---
