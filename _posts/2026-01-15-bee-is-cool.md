@@ -39,7 +39,7 @@ I really just hoped the pieces would fall into place.
 
 ---
 
-## Static vs Dynamic ("Wait..Static Can Still Update?”)
+## Static vs Dynamic ("Wait... Static Can Still Update?”)
 
 I went down a rabbit hole trying to understand the difference. 
 
