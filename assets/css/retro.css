@@ -84,7 +84,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-shadow:
-    0 0 3px var(--green)
+    0 0 3px var(--green),
     0 0 6px var(--green);
 }
 
@@ -754,6 +754,38 @@ input:focus {
   .container-md {
     background-color: rgba(0, 0, 0, 0.85);
   }
+}
+
+/* =====================================================
+   HOME LAYOUT — RETRO ELEMENTS
+   ===================================================== */
+
+.retro-section-header {
+  color: var(--green-dim);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.retro-prompt {
+  display: block;
+  color: var(--green-dim);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  animation: blink 1.2s step-end infinite;
+}
+
+.post-author {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.post-date {
+  color: var(--cyan-dim);
+  font-size: 0.78rem;
 }
 
 /* =====================================================
