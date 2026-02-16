@@ -824,7 +824,159 @@ input:focus {
   color: var(--cyan-dim);
   font-size: 0.78rem;
 }
+/* =====================================================
+   CAROUSEL
+   ===================================================== */
 
+.carousel-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.carousel-container {
+  border: 1px solid var(--border);
+  background-color: var(--mid);
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-card {
+  min-width: 100%;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+.carousel-title {
+  display: block;
+  color: var(--green);
+  text-shadow: 0 0 4px var(--green);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.carousel-desc {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--dark);
+}
+
+.carousel-btn {
+  background: transparent;
+  border: none;
+  color: var(--green-dim);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 2px 8px;
+  transition: all 0.15s;
+}
+
+.carousel-btn:hover {
+  color: var(--green);
+  text-shadow: 0 0 6px var(--green);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--green-dim);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.dot.active {
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 4px var(--green);
+}
+
+/* Image toggle / single image */
+.img-toggle-container,
+.img-single-container {
+  position: relative;
+  cursor: pointer;
+  margin: 0.75rem 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.img-toggle-container img,
+.img-single-container img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.85) saturate(0.4) hue-rotate(80deg);
+}
+
+.img-toggle-container img.hidden {
+  display: none;
+}
+
+/* Scanline sweep */
+.img-toggle-container::after,
+.img-single-container::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 0, 0.06) 50%,
+    transparent 100%
+  );
+  animation: scanSweep 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.img-toggle-hint {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  color: var(--green-dim);
+  font-size: 0.72rem;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 4px var(--green);
+  background: rgba(0,0,0,0.7);
+  padding: 2px 8px;
+  z-index: 3;
+}
+
+.img-toggle-container:hover .img-toggle-hint {
+  color: var(--green);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .carousel-card {
+    padding: 1rem;
+  }
+}
 /* =====================================================
    ANIMATIONS
    ===================================================== */
@@ -832,6 +984,11 @@ input:focus {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+@keyframes scanSweep {
+  0%   { top: -40%; }
+  100% { top: 110%; }
 }
 
 /* Optional: flicker effect on page load */
