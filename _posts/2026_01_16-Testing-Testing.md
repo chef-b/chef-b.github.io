@@ -1,3 +1,13 @@
+---
+layout: post
+title: Testing Testing, 1, 2, 3
+subtitle: Portfolio 1
+cover-img: /assets/img/untitled(1).png
+thumbnail-img: /assets/img/untitled.png
+share-img: /assets/img/untitled(1).png
+tags: [test]
+author: Bee
+---
 ## I Built My First Portfolio in 2 Days (With Zero Experience)
 
 I’ve never properly coded before.
@@ -50,7 +60,7 @@ I needed a portfolio.
 
 ---
 
-## Inheriting Vim: theres no i in team
+## Inheriting Vim: there's no i in team
 
 As a total beginner and with a tight deadline, I couldn't have done it without the team.
 
