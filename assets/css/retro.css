@@ -28,40 +28,30 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #0d0d0d;
   color: var(--green);
   font-family: 'Courier New', Courier, monospace;
   font-size: 15px;
   line-height: 1.7;
   text-shadow: 0 0 1px var(--green);
 
-  /* Grid: dark grey cells with green lines */
+  /* Grid: green lines both directions */
   background-image:
-    /* CRT scanlines — top layer */
     repeating-linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0) 0px,
-      rgba(0, 0, 0, 0) 2px,
-      rgba(0, 255, 0, 0.018) 2px,
-      rgba(0, 255, 0, 0.018) 4px
+      rgba(0, 180, 0, 0.4) 0px,
+      rgba(0, 180, 0, 0.4) 1px,
+      transparent 1px,
+      transparent 40px
     ),
-    /* Horizontal green grid lines (1px every 40px) */
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0, 180, 0, 0.45) 0px,
-      rgba(0, 180, 0, 0.45) 1px,
-      #0d0d0d 1px,
-      #0d0d0d 40px
-    ),
-    /* Vertical green grid lines (1px every 40px) */
     repeating-linear-gradient(
       to right,
-      rgba(0, 180, 0, 0.45) 0px,
-      rgba(0, 180, 0, 0.45) 1px,
-      #0d0d0d 1px,
-      #0d0d0d 40px
+      rgba(0, 180, 0, 0.4) 0px,
+      rgba(0, 180, 0, 0.4) 1px,
+      transparent 1px,
+      transparent 40px
     );
-  background-size: auto 4px, 40px 40px, 40px 40px;
+  background-size: 40px 40px;
 }
 
 /* Main content column — dark solid panel over the grid */
@@ -94,6 +84,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-shadow:
+    0 0 3px var(--green)
     0 0 6px var(--green);
 }
 
@@ -677,29 +668,25 @@ input:focus {
   }
 
   /* Keep grid on mobile — smaller cells, same dark grey + green lines */
-  body {
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px,
-        rgba(0,255,0,0.015) 2px, rgba(0,255,0,0.015) 4px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        rgba(0,180,0,0.4) 0px,
-        rgba(0,180,0,0.4) 1px,
-        #0d0d0d 1px,
-        #0d0d0d 30px
-      ),
-      repeating-linear-gradient(
-        to right,
-        rgba(0,180,0,0.4) 0px,
-        rgba(0,180,0,0.4) 1px,
-        #0d0d0d 1px,
-        #0d0d0d 30px
-      );
-    background-size: auto 4px, 30px 30px, 30px 30px;
-  }
+ body {
+  background-color: #0d0d0d;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 180, 0, 0.35) 0px,
+      rgba(0, 180, 0, 0.35) 1px,
+      transparent 1px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      to right,
+      rgba(0, 180, 0, 0.35) 0px,
+      rgba(0, 180, 0, 0.35) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  background-size: 30px 30px;
+}
 
   /* Navbar brand sizing */
   .navbar-brand {
