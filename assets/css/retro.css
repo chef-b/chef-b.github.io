@@ -474,21 +474,26 @@ footer a:hover {
 }
 
 /* Social icons in footer */
-footer .fa,
-footer .fas,
-footer .fab,
-footer svg {
-  color: var(--green-dim) !important;
-  fill: var(--dark) !important;
-  transition: color 0.15s, filter 0.15s;
+/* Footer icon circle (background) */
+footer .fa-circle {
+  color: var(--border) !important; /* dark green circle */
+  fill: var(--border) !important;
 }
 
-footer .fa:hover,
-footer .fas:hover,
-footer .fab:hover {
+/* Footer actual icon (foreground) */
+footer .fa-stack-1x {
   color: var(--green) !important;
   fill: var(--green) !important;
-  filter: drop-shadow(0 0 4px var(--green));
+}
+
+/* Hover effect */
+footer .fa-stack:hover .fa-circle {
+  color: var(--green-dim) !important;
+}
+
+footer .fa-stack:hover .fa-stack-1x {
+  color: var(--amber) !important;
+  text-shadow: 0 0 6px var(--amber);
 }
 
 /* =====================================================
