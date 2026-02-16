@@ -2,8 +2,8 @@
 layout: post
 title: Testing Testing, 1, 2, 3
 subtitle: Portfolio 1
-cover-img: /assets/img/untitled(1).png
-thumbnail-img: /assets/img/untitled.png
+cover-img: /assets/img/lapasion.jpeg
+thumbnail-img: /assets/img/lapasion.jpeg
 share-img: /assets/img/untitled(1).png
 tags: [test]
 author: Bee
@@ -13,6 +13,21 @@ author: Bee
 I’ve never properly coded before.
 
 No CS degree, no bootcamp - all I did was a one-day SheCodes workshop and I kinda liked it.
+
+The Result:
+<div class="img-toggle-container" onclick="toggleImage(this)">
+  <img class="img-before" src="/assets/img/Screenshot_20260216_233128.png" alt="Before">
+  <img class="img-after hidden" src="/assets/img/inspo1.jpeg" alt="After">
+  <span class="img-toggle-hint">[ click to toggle ]</span>
+</div>
+
+<script>
+function toggleImage(container) {
+  container.querySelector('.img-before').classList.toggle('hidden');
+  container.querySelector('.img-after').classList.toggle('hidden');
+}
+</script>
+
 
 With a background in Marketing and Socio-legal studies, I wanted to apply for jobs but they all asked for portfolio work.
 
