@@ -1,10 +1,10 @@
 ---
 layout: post
-title: First Post
-subtitle: Testing testing, 1, 2, 3
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
+title: Testing Testing, 1, 2, 3
+subtitle: First Post
+cover-img: /assets/img/untitled(1).png
+thumbnail-img: /assets/img/untitled.png
+share-img: /assets/img/untitled(1).png
 tags: [test]
 author: Bee
 ---
