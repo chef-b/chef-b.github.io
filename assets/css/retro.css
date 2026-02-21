@@ -230,7 +230,6 @@ a:hover, a:focus {
 .avatar-container img {
   border: 1px solid var(--green-dim) !important;
   box-shadow: 0 0 6px var(--green-glow) !important;
-  filter: brightness(0.9) saturate(0.5) hue-rotate(60deg);
 }
 
 /* Dropdown menus */
