@@ -116,7 +116,7 @@ body::after {
    ===================================================== */
 
 h1 {
-  color: var(--green);
+  color: var(--amber);
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -126,7 +126,7 @@ h1 {
 }
 
 h2 {
-  color: var(--amber);
+  color: var(--green);
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
   letter-spacing: 0.05em;
