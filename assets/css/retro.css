@@ -125,7 +125,17 @@ h1 {
     0 0 6px var(--green);
 }
 
-h2, h3 {
+h2 {
+  color: var(--amber);
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 4px var(--green);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25em;
+}
+
+h3 {
   color: var(--green);
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
