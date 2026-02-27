@@ -50,7 +50,7 @@ Did I panic slightly? Yes.
 
 I have always been a bit of a perfectionist but I've been intentional in learning the art of letting go and I'd set myself a 2 day 'MVP' challenge. 
 
-I really just hoped the pieces would fall into place. 
+I really just hoped the pieces would fall into place. (it's also worth mentioning that I didn't really use Ruby at all and I did most of my editing in HTML and CSS - so my panic was valid but in the wrong place. But that's on relying too much on AI to learn... more on that in another post). 
 
 ---
 
